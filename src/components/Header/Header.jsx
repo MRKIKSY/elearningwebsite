@@ -47,7 +47,7 @@ const Header = ({ refs }) => {
         <div className="navigation d-flex align-items-center justify-content-between">
           <div className="logo">
             <h2 className="d-flex align-items-center gap-1">
-              <i className="ri-pantone-line"></i> Learners.
+              <i className="ri-pantone-line"></i> LEAM CONSULTING .
             </h2>
           </div>
 
@@ -69,7 +69,7 @@ const Header = ({ refs }) => {
 
             <div className="nav__right">
               <p className="mb-0 d-flex align-items-center gap-2">
-                <i className="ri-phone-line"></i> +88 0123456789
+                <i className="ri-phone-line"></i> 0814 773 3176
               </p>
             </div>
           </div>
