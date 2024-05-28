@@ -15,7 +15,6 @@ const coursesData = [
     rating: 5.9,
     imgUrl: courseImg1,
   },
-
   {
     id: "02",
     title: "Professional Graphics Design, PhotoShop, Adobe XD, Figma",
@@ -24,7 +23,6 @@ const coursesData = [
     rating: 5.9,
     imgUrl: courseImg2,
   },
-
   {
     id: "03",
     title: "UI/UX BootCamp for Beginners in 2022",
@@ -50,15 +48,14 @@ const Courses = () => {
                   voluptatem recusandae reprehenderit!
                 </p>
               </div>
-
               <div className="w-50 text-end">
                 <button className="btn">See All</button>
               </div>
             </div>
           </Col>
           {coursesData.map((item) => (
-            <Col lg="4" md="6" sm="6">
-              <CourseCard key={item.id} item={item} />
+            <Col key={item.id} lg="4" md="6" sm="6">
+              <CourseCard item={item} />
             </Col>
           ))}
         </Row>

@@ -5,39 +5,49 @@ import "./header.css";
 const navLinks = [
   {
     display: "Home",
-    url: "#",
+    ref: "homeRef",
   },
   {
     display: "About",
-    url: "#",
+    ref: "aboutRef",
   },
-
   {
     display: "Courses",
-    url: "#",
+    ref: "coursesRef",
   },
   {
-    display: "Pages",
-    url: "#",
+    display: "Company",
+    ref: "companyRef",
   },
   {
-    display: "Blog",
-    url: "#",
+    display: "Testimonials",
+    ref: "testimonialsRef",
   },
 ];
 
-const Header = () => {
+const Header = ({ refs }) => {
   const menuRef = useRef();
 
   const menuToggle = () => menuRef.current.classList.toggle("active__menu");
+
+  const handleScroll = (ref) => {
+    if (refs[ref] && refs[ref].current) {
+      window.scrollTo({
+        top: refs[ref].current.offsetTop,
+        behavior: "smooth",
+      });
+    } else {
+      console.error(`Ref ${ref} is not defined or does not have a current property.`);
+    }
+  };
 
   return (
     <header className="header">
       <Container>
         <div className="navigation d-flex align-items-center justify-content-between">
           <div className="logo">
-            <h2 className=" d-flex align-items-center gap-1">
-              <i class="ri-pantone-line"></i> Learners.
+            <h2 className="d-flex align-items-center gap-1">
+              <i className="ri-pantone-line"></i> Learners.
             </h2>
           </div>
 
@@ -46,7 +56,12 @@ const Header = () => {
               <ul className="nav__list">
                 {navLinks.map((item, index) => (
                   <li key={index} className="nav__item">
-                    <a href={item.url}>{item.display}</a>
+                    <button
+                      onClick={() => handleScroll(item.ref)}
+                      className="nav__link"
+                    >
+                      {item.display}
+                    </button>
                   </li>
                 ))}
               </ul>
@@ -54,14 +69,14 @@ const Header = () => {
 
             <div className="nav__right">
               <p className="mb-0 d-flex align-items-center gap-2">
-                <i class="ri-phone-line"></i> +88 0123456789
+                <i className="ri-phone-line"></i> +88 0123456789
               </p>
             </div>
           </div>
 
           <div className="mobile__menu">
             <span>
-              <i class="ri-menu-line" onClick={menuToggle}></i>
+              <i className="ri-menu-line" onClick={menuToggle}></i>
             </span>
           </div>
         </div>
